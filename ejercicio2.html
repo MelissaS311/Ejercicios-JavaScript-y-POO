@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ordenar Array</title>
+</head>
+<body>
+
+<script>
+    // Función para ordenar un array de forma ascendente
+    function ordenarArray(arr) {
+        var len = arr.length;
+
+        for (var i = 0; i < len - 1; i++) {
+            for (var j = 0; j < len - 1 - i; j++) {
+                if (arr[j] > arr[j + 1]) {
+                    // Intercambiar elementos si están en el orden incorrecto
+                    var temp = arr[j];
+                    arr[j] = arr[j + 1];
+                    arr[j + 1] = temp;
+                }
+            }
+        }
+
+        return arr;
+    }
+
+    // Solicitar al usuario ingresar elementos y almacenarlos en un array
+    var entrada = prompt("Ingrese elementos separados por coma para el array:");
+
+    // Convertir la entrada en un array
+    var array = entrada.split(",").map(function (item) {
+        return parseInt(item.trim(), 10);  // Convertir a números y eliminar espacios en blanco
+    });
+
+    // Ordenar el array
+    var arrayOrdenado = ordenarArray(array);
+
+    // Imprimir resultados en la consola
+    console.log("Array original:", array);
+    console.log("Array ordenado de forma ascendente:", arrayOrdenado);
+</script>
+
+</body>
+</html>
